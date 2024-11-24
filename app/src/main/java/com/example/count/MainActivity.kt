@@ -6,11 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
 
     private var countValue = 0
+    private var cartValue = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,24 +21,36 @@ class MainActivity : AppCompatActivity() {
 
         val minusButton = findViewById<Button>(R.id.minusButton)
         val plusButton = findViewById<Button>(R.id.plusButton)
-        val resetButton = findViewById<Button>(R.id.resetButton)
+        val addToCartButton = findViewById<Button>(R.id.resetButton)
+        val clearCartButton = findViewById<Button>(R.id.clearButton)
         val count = findViewById<TextView>(R.id.count)
+        val cart = findViewById<TextView>(R.id.cartText)
 
         minusButton.setOnClickListener {
-            countValue--
-            count.text = countValue.toString()
+            if (countValue > 0) {
+                countValue--
+                count.text = countValue.toString()
+            }
         }
 
-        // Menangani tombol plus
         plusButton.setOnClickListener {
             countValue++
             count.text = countValue.toString()
         }
 
-        // Menangani tombol reset
-        resetButton.setOnClickListener {
+        addToCartButton.setOnClickListener {
+
+            cartValue += countValue
             countValue = 0
             count.text = countValue.toString()
+            cart.text = cartValue.toString()
+
+            Toast.makeText(this, "Bergasil menambahkan", Toast.LENGTH_SHORT).show()
+        }
+
+        clearCartButton.setOnClickListener {
+            cartValue = 0
+            cart.text = cartValue.toString()
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->

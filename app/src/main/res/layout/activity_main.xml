@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -21,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <!-- Title -->
             <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
@@ -35,6 +35,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="16dp" />
 
+            <!-- Image -->
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="100dp"
@@ -44,18 +45,20 @@
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/title"
-                app:srcCompat="@drawable/_korigengi_ryuzaky__yui_yuigahama" />
+                app:srcCompat="@drawable/pngwing_com" />
 
+            <!-- Minus Button -->
             <Button
                 android:id="@+id/minusButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="decrease"
+                android:text="-"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/imageView" />
 
+            <!-- Count TextView -->
             <TextView
                 android:id="@+id/count"
                 android:layout_width="wrap_content"
@@ -66,29 +69,70 @@
                 android:textColor="#000000"
                 android:textSize="34sp"
                 app:layout_constraintEnd_toStartOf="@id/plusButton"
-                app:layout_constraintHorizontal_bias="0.447"
                 app:layout_constraintStart_toEndOf="@id/minusButton"
                 app:layout_constraintTop_toBottomOf="@id/imageView" />
 
+            <!-- Plus Button -->
             <Button
                 android:id="@+id/plusButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="add"
+                android:text="+"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/imageView" />
 
+            <!-- Add to Cart Button -->
             <Button
                 android:id="@+id/resetButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="RESET"
-                app:layout_constraintTop_toBottomOf="@id/plusButton"
+                android:layout_marginTop="32dp"
+                android:text="ADD to Cart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/plusButton" />
+
+            <!-- Your Cart Text -->
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Cart:"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                app:layout_constraintTop_toBottomOf="@id/resetButton"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="32dp" />
+                android:layout_marginTop="16dp" />
+
+            <!-- Cart Value -->
+            <TextView
+                android:id="@+id/cartText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@id/textView2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp" />
+
+            <!-- Nasi Goreng Text -->
+
+            <!-- Clear Button -->
+            <Button
+                android:id="@+id/clearButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CANCEL"
+                app:layout_constraintTop_toBottomOf="@id/cartText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
